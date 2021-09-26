@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "build": "npm run build:functions",
-    "build:bundle": "cpx src/**/* functions/bundle",
     "build:functions": "cd functions && npm run build"
   },
   "repository": {
