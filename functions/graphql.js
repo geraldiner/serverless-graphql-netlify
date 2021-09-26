@@ -5,5 +5,6 @@ const server = createLambdaServer();
 exports.handler = server.createHandler({
 	cors: {
 		origin: "*",
+		credentials: true,
 	},
 });
