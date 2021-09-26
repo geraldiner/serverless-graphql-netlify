@@ -1,5 +1,5 @@
-const ApolloServer = require("apollo-server").ApolloServer;
-const ApolloServerLambda = require("apollo-server-lambda").ApolloServer;
+const ApolloServerLocal = require("apollo-server").ApolloServer;
+const { ApolloServer: ApolloServerLambda } = require("apollo-server-lambda").ApolloServer;
 const { gql } = require("apollo-server-lambda");
 
 const typeDefs = gql`
@@ -24,7 +24,7 @@ function createLambdaServer() {
 }
 
 function createLocalServer() {
-	return new ApolloServer({
+	return new ApolloServerLocal({
 		typeDefs,
 		resolvers,
 		introspection: true,
