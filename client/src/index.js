@@ -5,7 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
-const url = process.env.NODE_ENV !== "production" ? "http://localhost:4000" : "https://elated-williams-be283b.netlify.app/.netlify/functions/graphql";
+const url =
+	process.env.NODE_ENV !== "production" ? "http://localhost:4000" : "https://serverless-graphql-portfolio.netlify.app/.netlify/functions/graphql";
 
 const client = new ApolloClient({
 	uri: url,
