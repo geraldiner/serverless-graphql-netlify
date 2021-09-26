@@ -1,4 +1,4 @@
-const { ApolloServer } = require("apollo-server");
+const ApolloServer = require("apollo-server-lambda").ApolloServer;
 const resolvers = require("./bundle/resolvers");
 const typeDefs = require("./bundle/schema");
 const GithubAPI = require("./bundle/datasources/github");
