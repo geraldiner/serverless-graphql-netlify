@@ -1,36 +1,53 @@
+const { ApolloServer } = require("apollo-server");
+const { ApolloServerLambda } = require("apollo-server-lambda");
+const resolvers = require("./resolvers");
+const typeDefs = require("./schema");
+const GithubAPI = require("./datasources/github");
+const HashnodeAPI = require("./datasources/hashnode");
+require("dotenv").config({ path: __dirname + "/.env" });
 
-const ApolloServer = require('apollo-server').ApolloServer
-const ApolloServerLambda = require('apollo-server-lambda').ApolloServer
-const { gql } = require('apollo-server-lambda');
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => "Hi! Love from @stemmlerjs 🤠."
-  }
-};
-
-function createLambdaServer () {
-  return new ApolloServerLambda({
-    typeDefs,
-    resolvers,
-    introspection: true,
-    playground: true,
-  });
+function createLambdaServer() {
+	return new ApolloServerLambda({
+		typeDefs,
+		resolvers,
+		dataSources: () => {
+			return {
+				githubAPI: new GithubAPI(),
+				hashnodeAPI: new HashnodeAPI(),
+			};
+		},
+		context: () => {
+			return {
+				githubToken: process.env.GITHUB_TOKEN,
+				hashnodeToken: process.env.HASHNODE_TOKEN,
+				env: process.env.NODE_ENV,
+			};
+		},
+		introspection: true,
+		playground: true,
+	});
 }
 
-function createLocalServer () {
-  return new ApolloServer({
-    typeDefs,
-    resolvers,
-    introspection: true,
-    playground: true,
-  });
+function createLocalServer() {
+	return new ApolloServer({
+		typeDefs,
+		resolvers,
+		dataSources: () => {
+			return {
+				githubAPI: new GithubAPI(),
+				hashnodeAPI: new HashnodeAPI(),
+			};
+		},
+		context: () => {
+			return {
+				githubToken: process.env.GITHUB_TOKEN,
+				hashnodeToken: process.env.HASHNODE_TOKEN,
+				env: process.env.NODE_ENV,
+			};
+		},
+		introspection: true,
+		playground: true,
+	});
 }
 
-module.exports = { createLambdaServer, createLocalServer }
+module.exports = { createLambdaServer, createLocalServer };
