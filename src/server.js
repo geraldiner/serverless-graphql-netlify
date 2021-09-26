@@ -1,5 +1,7 @@
 const { ApolloServer } = require("apollo-server");
 const { ApolloServerLambda } = require("apollo-server-lambda");
+const { ApolloServerPluginLandingPageGraphQLPlayground } = require("apollo-server-core");
+
 const resolvers = require("./resolvers");
 const typeDefs = require("./schema");
 const GithubAPI = require("./datasources/github");
@@ -25,6 +27,7 @@ function createLambdaServer() {
 		},
 		introspection: true,
 		playground: true,
+		plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
 	});
 	return server;
 }
