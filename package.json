@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "bundle": "cpx src/**/* functions/bundle",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "cpx src/**/* functions/bundle"
   },
   "repository": {
     "type": "git",
@@ -27,7 +26,8 @@
   "dependencies": {
     "apollo-server": "^2.25.2",
     "apollo-server-lambda": "^2.25.2",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "graphql": "^15.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
