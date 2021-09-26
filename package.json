@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "build": "run-s build:**",
-    "build:install": "npm install",
+    "build": "npm install && run-s build:**",
     "build:functions": "cpx src/**/* functions/bundle"
   },
   "repository": {
