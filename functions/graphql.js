@@ -1,8 +1,8 @@
 const { ApolloServer } = require("apollo-server");
-const resolvers = require("./resolvers");
-const typeDefs = require("./schema");
-const GithubAPI = require("./datasources/github");
-const HashnodeAPI = require("./datasources/hashnode");
+const resolvers = require("./bundle/resolvers");
+const typeDefs = require("./bundle/schema");
+const GithubAPI = require("./bundle/datasources/github");
+const HashnodeAPI = require("./bundle/datasources/hashnode");
 require("dotenv").config({ path: __dirname + "/.env" });
 
 const server = new ApolloServer({
