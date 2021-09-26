@@ -4,8 +4,8 @@
   "description": "The simplest serverless GraphQL API deployed on Netlify possible.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "bundle": "cpx src/**/* functions/bundle",
+    "start": "nodemon server/src/index.js",
+    "bundle": "cpx server/src/**/* functions/bundle",
     "build": "run-s build:**",
     "build:functions": "cd functions && npm run build",
     "build:web": "cd client && npm install && npm run build"
