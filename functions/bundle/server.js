@@ -1,5 +1,5 @@
 const { ApolloServer } = require("apollo-server");
-const { ApolloServerLambda } = require("apollo-server-lambda");
+const ApolloServerLambda = require("apollo-server-lambda").ApolloServer;
 const resolvers = require("./resolvers");
 const typeDefs = require("./schema");
 const GithubAPI = require("./datasources/github");
@@ -7,7 +7,7 @@ const HashnodeAPI = require("./datasources/hashnode");
 require("dotenv").config({ path: __dirname + "/.env" });
 
 function createLambdaServer() {
-	return new ApolloServerLambda({
+	const server = new ApolloServerLambda({
 		typeDefs,
 		resolvers,
 		dataSources: () => {
@@ -26,10 +26,11 @@ function createLambdaServer() {
 		introspection: true,
 		playground: true,
 	});
+	return server;
 }
 
 function createLocalServer() {
-	return new ApolloServer({
+	const server = new ApolloServer({
 		typeDefs,
 		resolvers,
 		dataSources: () => {
@@ -48,6 +49,7 @@ function createLocalServer() {
 		introspection: true,
 		playground: true,
 	});
+	return server;
 }
 
 module.exports = { createLambdaServer, createLocalServer };
