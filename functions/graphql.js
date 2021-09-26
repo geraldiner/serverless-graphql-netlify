@@ -2,7 +2,7 @@ const { createLambdaServer } = require("./bundle/server");
 
 const server = createLambdaServer();
 
-exports.handler = server.createHandler({
+exports.graphqlHandler = server.createHandler({
 	cors: {
 		origin: "*",
 	},
