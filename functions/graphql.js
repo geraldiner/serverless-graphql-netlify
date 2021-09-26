@@ -25,7 +25,7 @@ const server = new ApolloServer({
 	playground: true,
 });
 
-exports.graphqlHandler = server.createHandler({
+exports.handler = server.createHandler({
 	cors: {
 		origin: "*",
 	},
