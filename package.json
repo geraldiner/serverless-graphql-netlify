@@ -8,7 +8,7 @@
     "bundle": "cpx src/**/* functions/bundle",
     "build": "run-s build:**",
     "build:functions": "cd functions && npm run build",
-    "build:web": "cd client && npm run build"
+    "build:web": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
