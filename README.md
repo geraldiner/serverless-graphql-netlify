@@ -1,3 +1,6 @@
+## About
+
+A test repo for experimenting with hosting a GraphQL API with Apollo on Netlify
 
 ## Other Projects
 
