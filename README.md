@@ -2,6 +2,7 @@
 
 A test repo for experimenting with hosting a GraphQL API with Apollo on Netlify.
 
+
 ## Other Projects
 
 Check out other stuff I've worked on:
@@ -13,5 +14,3 @@ Check out other stuff I've worked on:
 **Snapchat Clone:** https://github.com/geraldiner/snapchat-clone
 
 **K.K. Radio:** https://github.com/geraldiner/kk-radio
-
-**Interactive Piano:** https://github.com/geraldiner/piano
