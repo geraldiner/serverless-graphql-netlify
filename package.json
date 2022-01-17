@@ -4,7 +4,6 @@
   "description": "A test repo for experimenting with hosting a GraphQL API with Apollo on Netlify.",
   "main": "index.js",
   "dependencies": {
-    "build": "cd server && npm run build",
     "eslint": "^8.7.0"
   },
   "devDependencies": {
