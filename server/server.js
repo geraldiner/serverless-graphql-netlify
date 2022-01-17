@@ -16,7 +16,6 @@ function createLocalServer() {
 	const server = new ApolloServer({
 		typeDefs,
 		resolvers,
-		introspection: true,
 		playground: true,
 	});
 	return server;
