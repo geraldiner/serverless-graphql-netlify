@@ -3,6 +3,9 @@ const resolvers = {
 		getHello: () => {
 			return "Hello!";
 		},
+		getSong: (_, { id }, { dataSources }) => {
+			return dataSources.acnhAPI.getSong(id);
+		},
 	},
 };
 
