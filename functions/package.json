@@ -1,0 +1,17 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "graphql.js",
+  "scripts": {
+    "build": "npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.6.1",
+    "apollo-server-lambda": "^2.0.7",
+    "graphql": "^16.2.0"
+  }
+}
