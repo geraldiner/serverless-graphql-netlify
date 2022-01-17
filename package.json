@@ -1,10 +1,16 @@
 {
   "name": "serverless-graphql-netlify",
   "version": "1.0.0",
-  "description": "",
+  "description": "A test repo for experimenting with hosting a GraphQL API with Apollo on Netlify.",
   "main": "index.js",
+  "dependencies": {
+    "eslint": "^8.7.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.28.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint \"{server,client}/**/*.js\" --fix"
   },
   "repository": {
     "type": "git",
@@ -16,13 +22,5 @@
   "bugs": {
     "url": "https://github.com/geraldiner/serverless-graphql-netlify/issues"
   },
-  "homepage": "https://github.com/geraldiner/serverless-graphql-netlify#readme",
-  "dependencies": {
-    "apollo-server-lambda": "^3.6.1",
-    "graphql": "^16.2.0"
-  },
-  "devDependencies": {
-    "encoding": "^0.1.13",
-    "netlify-cli": "^8.8.2"
-  }
+  "homepage": "https://github.com/geraldiner/serverless-graphql-netlify#readme"
 }
