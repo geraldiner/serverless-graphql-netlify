@@ -1,18 +1,19 @@
 const { ApolloServer } = require("apollo-server");
 const ApolloServerLambda = require("apollo-server-lambda").ApolloServer;
+const typeDefs = require("./schema");
+const resolvers = require("./resolvers");
 // eslint-disable-next-line no-undef
 require("dotenv").config({ path: __dirname + "/.env" });
 
-const typeDefs = require("./schema");
-const resolvers = require("./resolvers");
 const AcnhAPI = require("./datasources/acnh");
 const AcnhQuotes = require("./datasources/acnh-quotes");
+
 const { MongoClient } = require("mongodb");
 // eslint-disable-next-line no-undef
 const client = new MongoClient(process.env.MONGODB_URI);
 client.connect();
 
-async function createLambdaServer() {
+function createLambdaServer() {
 	const server = new ApolloServerLambda({
 		typeDefs,
 		resolvers,
@@ -34,7 +35,7 @@ function createLocalServer() {
 		dataSources: () => {
 			return {
 				acnhAPI: new AcnhAPI(),
-				acnhQuotes: new AcnhQuotes(client.db("acnh-quotes").collection("quotes")),
+				acnhQuotes: new AcnhQuotes(client.db().collection("quotes")),
 			};
 		},
 		introspection: true,
