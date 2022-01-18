@@ -19,7 +19,6 @@ async function createLambdaServer() {
 		dataSources: () => {
 			return {
 				acnhAPI: new AcnhAPI(),
-				acnhQuotes: new AcnhQuotes(client.db().collection("quotes")),
 			};
 		},
 		introspection: true,
