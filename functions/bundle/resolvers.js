@@ -6,6 +6,9 @@ const resolvers = {
 		getSong: (_, { id }, { dataSources }) => {
 			return dataSources.acnhAPI.getSong(id);
 		},
+		getRandomQuote: (_, __, { dataSources }) => {
+			return dataSources.acnhQuotes.getRandomQuote();
+		},
 	},
 };
 
