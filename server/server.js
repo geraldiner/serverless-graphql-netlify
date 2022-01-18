@@ -8,6 +8,7 @@ const resolvers = require("./resolvers");
 const AcnhAPI = require("./datasources/acnh");
 const AcnhQuotes = require("./datasources/acnh-quotes");
 const { MongoClient } = require("mongodb");
+// eslint-disable-next-line no-undef
 const client = new MongoClient(process.env.MONGODB_URI);
 client.connect();
 
@@ -18,7 +19,7 @@ async function createLambdaServer() {
 		dataSources: () => {
 			return {
 				acnhAPI: new AcnhAPI(),
-				acnhQuotes: new AcnhQuotes(client.db().collection("quotes")),
+				acnhQuotes: new AcnhQuotes(client.db("acnh-quotes").collection("quotes")),
 			};
 		},
 		introspection: true,
@@ -28,7 +29,6 @@ async function createLambdaServer() {
 }
 
 function createLocalServer() {
-	// eslint-disable-next-line no-undef
 	const server = new ApolloServer({
 		typeDefs,
 		resolvers,
