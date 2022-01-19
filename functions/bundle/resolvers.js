@@ -1,13 +1,16 @@
 const resolvers = {
 	Query: {
-		getHello: () => {
+		hello: () => {
 			return "Hello!";
 		},
-		getSong: (_, { id }, { dataSources }) => {
-			return dataSources.acnhAPI.getSong(id);
+		song: (_, { id }, { dataSources }) => {
+			return dataSources.acnhAPI.getSongById(id);
 		},
-		getRandomQuote: (_, __, { dataSources }) => {
+		randomQuote: (_, __, { dataSources }) => {
 			return dataSources.acnhQuotes.getRandomQuote();
+		},
+		fish: (_, { id }, { dataSources }) => {
+			return dataSources.acnhAPI.getFishById(id);
 		},
 	},
 };
